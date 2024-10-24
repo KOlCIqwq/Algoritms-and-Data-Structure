@@ -20,3 +20,20 @@ def easySum(arr,intervals) -> int:
                 out.append(sum)
         return out
 print(easySum(a,b))
+
+def midSum(arr,intervals) -> int:
+        n = len(arr)
+        out = []
+        contArray = [0]
+        sum = 0
+        for i in range(n):
+                sum += arr[i]
+                contArray.append(sum)
+        for i in range(0,len(intervals),2):
+                left = intervals[i]
+                right = intervals[i + 1] + 1
+                if left > right or left > n or right > n:
+                          return 
+                out.append(contArray[right] - contArray[left])     
+        return out           
+print(midSum(a,b))
