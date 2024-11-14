@@ -68,8 +68,8 @@ def getMax(seg,i,j):
     
     if i == j:
         return float('-inf')
-    p = prefix(s,i,j)
-    return max(p.val, getMax(s,p.j,j))
+    p = prefix(seg,i,j)
+    return max(p.val, getMax(seg,p.j,j))
 
 
 #a = input()
@@ -83,7 +83,6 @@ segment = transformToTree(a)
 
 print(easySum(a,b))           
 print(midSum(a,b))
-print(maxInterval(a,b))
 
 for k in range(0,len(b),2):
     i = b[k]
