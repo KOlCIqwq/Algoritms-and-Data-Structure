@@ -4,8 +4,9 @@ def rep(s):
        a border in that position. A border is a substring that is prefix and suffix
     2. Loop the string, each time we compare the current and the previous, the previous
        is not i - 1 but rather we need to extract that from the borderLength
-    3. If they're not equal we gonna set the previous as the previous again and so on
-       If they're the same increase the previous pointer
+    3. If they're not equal we gonna check if the border's corrisponding position corrispond.
+    4. If both case fail, we gonna decrement till we find a new char that is equal to the current
+       and set the found position and current as the max length border
     
     e.g.:
     s = "abcabcab"
