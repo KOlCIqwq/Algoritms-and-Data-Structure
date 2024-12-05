@@ -104,42 +104,41 @@ class MinHeap:
     def getHeap(self):
         return self.heap
 
-def processCommands(commands):
+def processCommands():
     heap = MinHeap()
-    
-    while True:
-        command = input().strip()
-        parts = command.split()
-        operation = parts[0]
-
+    exit = False
+    while exit != True:
+        a = input()
+        rawInput = a.split()
+        operation = rawInput[0]
         if operation == "build":
-            arr = list(map(int, parts[1:]))
+            arr = list(map(int, rawInput[1:]))
             heap.build(arr)
-            print(*heap.getHeap())
-        
+            print(heap.getHeap())
+            continue
         elif operation == "length":
             print(heap.length())
-        
+            continue
         elif operation == "getmin":
             print(heap.getmin())
-        
+            continue
         elif operation == "insert":
-            x = int(parts[1])
+            x = int(rawInput[1])
             heap.insert(x)
-            print(*heap.getHeap())
-        
+            print(heap.getHeap())
+            continue
         elif operation == "extract":
             print(heap.extract())
-            print(*heap.getHeap())
-        
+            print(heap.getHeap())
+            continue
         elif operation == "change":
-            i = int(parts[1])
-            x = int(parts[2])
+            i = int(rawInput[1])
+            x = int(rawInput[2])
             heap.change(i, x)
             print(*heap.getHeap())
-        
+            continue
         elif operation == "exit":
+            exit = True
             break
 
-a = input()
-processCommands(a)
+processCommands()
