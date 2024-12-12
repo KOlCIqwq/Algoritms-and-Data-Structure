@@ -102,7 +102,8 @@ class MinHeap:
             arr[i], arr[small] = arr[small], arr[i]
             self.heapifyDown(small)
     def getHeap(self):
-        return self.heap
+        arr = self.heap
+        return ' '.join(arr)
 
 def processCommands():
     heap = MinHeap()
@@ -118,9 +119,11 @@ def processCommands():
             continue
         elif operation == "length":
             print(heap.length())
+            print(heap.getHeap())
             continue
         elif operation == "getmin":
             print(heap.getmin())
+            print(heap.getHeap())
             continue
         elif operation == "insert":
             x = int(rawInput[1])
@@ -135,7 +138,7 @@ def processCommands():
             i = int(rawInput[1])
             x = int(rawInput[2])
             heap.change(i, x)
-            print(*heap.getHeap())
+            print(heap.getHeap())
             continue
         elif operation == "exit":
             exit = True
