@@ -17,16 +17,9 @@ def PigeonSort(arr):
             arr[index]=element
             index+=1
             
-            
-def PrintArray(arr):
-    for item in arr:
-        print(item)
-        
-        
-        
-""" a = input()
+a = input()
 arr = list(map(int, a.split()))
-PrintArray(arr)
+print(arr)
 print("----------")
 PigeonSort(arr)
-PrintArray(arr) """
+print(arr)

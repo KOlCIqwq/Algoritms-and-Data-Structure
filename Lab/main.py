@@ -6,14 +6,13 @@ from Algorithms.counting_sort import counting_sort
 from Algorithms.pigeonhole_sort import PigeonSort
 from measure import get_Tmin, measure_time, geometric_progression, generate_array
 
-samples = 100  # Numero di campioni
+samples = 200  # Numero di campioni
 
 Tmin = get_Tmin(samples)
 print(f"Tmin = {Tmin:.8f} s")
 
 M = 100000
 n_values = geometric_progression(100, 100000, samples)
-
 times_quick_random = []
 times_quick_median = []
 times_quick_three = []
@@ -38,4 +37,5 @@ for n in n_values:
     # Print time for check
     print(f"n = {n:6d} | Random: {t_quick_random:.8f} s | Median-of-Medians: {t_quick_median:.8f} s | Three-way: {t_quick_three:.8f} s | Counting: {t_counting:.8f} s | Pigeonhole: {t_pigeon:.8f} s")
 
+#n_values.insert(0,0)
 
