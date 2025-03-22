@@ -1,33 +1,31 @@
-def countingsort(arr):
-    # Count frequency of each element using a dictionary.
-    frequency = {}
-    for item in arr:
-        frequency[item] = frequency.get(item, 0) + 1
+def counting_sort(arr):
+    '''
+    Find the minimum and maximum values in the array, then create a table holding the range of these values
+    Count them and insert to the table, and then place these number backwards to hold the original position (stable)
+    '''
+    if not arr:
+        return arr
 
-    # Get the sorted list of unique keys.
-    sorted_keys = sorted(frequency)
-    
-    # Compute cumulative counts to determine positions.
-    cum_count = {}
-    total = 0
-    for key in sorted_keys:
-        total += frequency[key]
-        cum_count[key] = total
+    min_val = min(arr)
+    max_val = max(arr)
+    range_val = max_val - min_val + 1
 
-    # Create an output array of the same length.
-    output = [None] * len(arr)
-    
-    # Place each element in the correct position by iterating backwards.
-    # This reverse traversal ensures that elements with equal keys maintain
-    # their original relative order (stability).
-    for item in reversed(arr):
-        pos = cum_count[item] - 1
-        output[pos] = item
-        cum_count[item] -= 1
+    count = [0] * range_val
+
+    for num in arr:
+        count[num - min_val] += 1
+
+    for i in range(1, len(count)):
+        count[i] += count[i - 1]
+
+    output = [0] * len(arr)
+
+    for num in reversed(arr):
+        count[num - min_val] -= 1
+        output[count[num - min_val]] = num
 
     return output
 
-a = input()
+a = input("Enter numbers separated by spaces: ")
 arr = list(map(int, a.split()))
-
-print(countingsort(arr))
+print(counting_sort(arr))
