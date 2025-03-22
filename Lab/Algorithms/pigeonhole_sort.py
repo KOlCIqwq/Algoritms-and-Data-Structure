@@ -24,9 +24,9 @@ def PrintArray(arr):
         
         
         
-a = input()
+""" a = input()
 arr = list(map(int, a.split()))
 PrintArray(arr)
 print("----------")
 PigeonSort(arr)
-PrintArray(arr)
+PrintArray(arr) """

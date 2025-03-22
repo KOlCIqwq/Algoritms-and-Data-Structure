@@ -26,6 +26,6 @@ def counting_sort(arr):
 
     return output
 
-a = input("Enter numbers separated by spaces: ")
+""" a = input("Enter numbers separated by spaces: ")
 arr = list(map(int, a.split()))
-print(counting_sort(arr))
+print(counting_sort(arr)) """
