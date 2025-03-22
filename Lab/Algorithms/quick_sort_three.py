@@ -1,5 +1,7 @@
 import random
-
+def helper(arr):
+    lo,hi = 0,len(arr)-1
+    quicksort_3way(arr,lo,hi)
 def quicksort_3way(arr, lo, hi):
     '''
     We gonna divide the array into three parts: Those who are less than the pivot, those who are equal to the pivot and those who are greater than the pivot
