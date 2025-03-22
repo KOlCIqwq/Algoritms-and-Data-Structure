@@ -12,7 +12,7 @@ def quicksort_3way(arr, lo, hi):
     Here we do an example walkthrough:
     [3, 5, 2, 3, 8, 1, 3, 7, 3, 6, 2], pivot = 3, left = 0, right = 10
     i = 1. arr[1] > pivot, swap arr[1] with arr[right], right = 9, i = 1 [3, 2, 2, 3, 8, 1, 3, 7, 3, 6, 5]
-    i = 2, arr[2] < pivot, swap arr[2] with arr[left], left = 1, i = 3 [2, 3, 2, 3, 8, 1, 3, 7, 3, 6, 5]
+    i = 1, arr[1] < pivot, swap arr[1] with arr[left], left = 1, i = 2 [2, 3, 2, 3, 8, 1, 3, 7, 3, 6, 5]
     ... Continue this process until i > right
     [2, 2, 1, 3, 3, 3, 3, 6, 7, 8, 5]
     Now we recursively sort the left and right sections [2, 2, 1] and [6, 7, 8, 5]
