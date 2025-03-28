@@ -46,8 +46,8 @@ for n in n_values:
     print(f"n = {n:6d} | Random: {t_quick_random:.8f} s | Median-of-Medians: {t_quick_median:.8f} s | Three-way: {t_quick_three:.8f} s | Counting: {t_counting:.8f} s | RDX: {t_radix:.8f} s")
 print("End 1st")
 
-n_values = geometric_progression(100, 10000, samples)
-for n in n_values:
+n_values1 = geometric_progression(100, 10000, samples)
+for n in n_values1:
     # Generate only 1 array for all sorting algorithms
     arr_size = 10000
     # This time the array will be fixed arr_size with n elements repeated between 10 and M
