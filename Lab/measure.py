@@ -55,6 +55,15 @@ def measure_init(n,m, Tmin):
             break
     return elapsed / count
 
+def main_measure(arr,sort_func, Tmin,n,m):
+    '''
+    Measure 10 times, get mean time
+    '''
+    temp = []
+    for _ in range(10):
+        temp.append(measure_time(arr,sort_func, Tmin,n,m))
+    return sum(temp) / 10
+
 def measure_time(arr,sort_func, Tmin,n,m):
     '''
     Proposed way to measure the time of a sorting algorithm.
@@ -76,3 +85,12 @@ def geometric_progression(start, end, samples):
     # Proposed geometric sequence
     B = (end / start) ** (1 / (samples - 1))
     return [math.floor(start * (B ** i)) for i in range(samples)]
+
+def generate_repeated(arr_size, n,m):
+    '''
+    Generate an array of size arr_size with n repeated n times.
+    '''
+    rep_elem = np.random.randint(10,m)
+    arr = [rep_elem] * n
+    arr.extend(generate_array(arr_size-n,m))
+    return arr

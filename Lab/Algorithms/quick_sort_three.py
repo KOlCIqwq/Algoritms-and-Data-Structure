@@ -48,6 +48,7 @@ def quicksort_3way(arr, lo, hi):
     # Recursively sort the sections with elements less than and greater than pivot
     quicksort_3way(arr, lo, left - 1)
     quicksort_3way(arr, right + 1, hi)
+    return arr
 
 """ a = input("Enter numbers separated by spaces: ")
 arr = list(map(int, a.split()))
