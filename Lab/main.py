@@ -46,26 +46,26 @@ for n in n_values:
     print(f"n = {n:6d} | Random: {t_quick_random:.8f} s | Median-of-Medians: {t_quick_median:.8f} s | Three-way: {t_quick_three:.8f} s | Counting: {t_counting:.8f} s | RDX: {t_radix:.8f} s")
 print("End 1st")
 
-n_values = geometric_progression(100, 990, samples)
+n_values = geometric_progression(100, 10000, samples)
 for n in n_values:
     # Generate only 1 array for all sorting algorithms
-    arr_size = 990
+    arr_size = 10000
     # This time the array will be fixed arr_size with n elements repeated between 10 and M
     arr = generate_repeated(arr_size,n,M)
 
-    rep_t_quick_random = main_measure(arr,quick_sort, Tmin,n,M)
-    rep_t_quick_median = main_measure(arr,quick_sort_median, Tmin,n,M)
-    rep_t_quick_three = main_measure(arr,helper, Tmin,n,M)
-    rep_t_counting = main_measure(arr,counting_sort, Tmin,n,M)
-    rep_t_radix = main_measure(arr,RadixSort, Tmin,n,M)
+    #rep_t_quick_random = main_measure(arr,quick_sort, Tmin,n,M)
+    #rep_t_quick_median = measure_time(arr,quick_sort_median, Tmin,n,M)
+    rep_t_quick_three = measure_time(arr,helper, Tmin,n,M)
+    rep_t_counting = measure_time(arr,counting_sort, Tmin,n,M)
+    rep_t_radix = measure_time(arr,RadixSort, Tmin,n,M)
 
-    rep_times_quick_random.append(rep_t_quick_random)
-    rep_times_quick_median.append(rep_t_quick_median)
+    #rep_times_quick_random.append(rep_t_quick_random)
+    #rep_times_quick_median.append(rep_t_quick_median)
     rep_times_quick_three.append(rep_t_quick_three)
     rep_times_counting.append(rep_t_counting)
     rep_times_radix.append(rep_t_radix)
 
-    print(f"n = {n:6d} | Random: {rep_t_quick_random:.8f} s | Median-of-Medians: {rep_t_quick_median:.8f} s | Three-way: {rep_t_quick_three:.8f} s | Counting: {rep_t_counting:.8f} s | RDX: {rep_t_radix:.8f} s")
+    print(f"n = {n:6d} |  |  | Three-way: {rep_t_quick_three:.8f} s | Counting: {rep_t_counting:.8f} s | RDX: {rep_t_radix:.8f} s")
 print("End 2nd")
 
     
