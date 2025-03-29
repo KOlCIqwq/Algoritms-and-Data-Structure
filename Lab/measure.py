@@ -1,6 +1,7 @@
 import time
 import math
 import numpy as np
+import random
 
 def clock_resolution():
     '''
@@ -84,6 +85,7 @@ def generate_repeated(arr_size, n,m):
     rep_elem = np.random.randint(10,m+1)
     arr = [rep_elem] * n
     arr.extend(generate_array(arr_size-n,m))
+    random.shuffle(arr) # Shuffle the array to mix the repeated elements
     return arr
 
 def reversed_sorted_array(n,m):
@@ -93,4 +95,3 @@ def reversed_sorted_array(n,m):
     arr= generate_array(n,m)
     arr.sort(reverse=True)
     return arr
-
