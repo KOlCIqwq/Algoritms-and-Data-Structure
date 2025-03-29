@@ -12,21 +12,14 @@ def clock_resolution():
     stop = time.perf_counter()
     return stop - start
 
-def get_Tmin(samples):
-    '''
-    Why R * 10? And not R * 1001 as the Tmin=R⋅((1/E)+1) suggested?
-    The idea is that we don't measure only a single execution, but rather multiple executions.
-    In this way the total time will be accumulated and it will be too big for a single execution.
-    Since we run the algorithm with an array of 100 to 100000, minimum 100 times is proposed. 
-    Thus to calculated the mean Tmin, we divide it by 100.
-    '''
+def get_Tmin(E):
     R = clock_resolution()
-    Tmin = R * (1000 // samples)
+    Tmin = R * (1/E + 1)
     return Tmin
 
 def generate_array(n, m):
     # replace = False to generate unique elements
-    arr = np.random.choice(np.arange(1, m + 1), size=n, replace=False).tolist()
+    arr = np.random.choice(np.arange(10, m + 1), size=n, replace=False).tolist()
     """ if repeated(arr):
         print("array contains repeated elements") """
     return arr
@@ -59,10 +52,8 @@ def main_measure(arr,sort_func, Tmin,n,m):
     '''
     Measure 10 times, get mean time
     '''
-    temp = []
-    for _ in range(10):
-        temp.append(measure_time(arr,sort_func, Tmin,n,m))
-    return sum(temp) / 10
+    times = [measure_time(arr, sort_func, Tmin, n, m) for _ in range(10)]
+    return sum(times) / 10
 
 def measure_time(arr,sort_func, Tmin,n,m):
     '''
@@ -90,7 +81,16 @@ def generate_repeated(arr_size, n,m):
     '''
     Generate an array of size arr_size with n repeated n times.
     '''
-    rep_elem = np.random.randint(10,m)
+    rep_elem = np.random.randint(10,m+1)
     arr = [rep_elem] * n
     arr.extend(generate_array(arr_size-n,m))
     return arr
+
+def reversed_sorted_array(n,m):
+    '''
+    Generate a reversed sorted array of size n with values from 1 to m.
+    '''
+    arr= generate_array(n,m)
+    arr.sort(reverse=True)
+    return arr
+
